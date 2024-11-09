@@ -1,5 +1,6 @@
 package com.andymartinez1.Hotel.entity;
 
+import com.andymartinez1.Hotel.dto.UserDTO;
 import com.andymartinez1.Hotel.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -57,5 +58,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserDTO getUserDTO(){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(id);
+        userDTO.setName(name);
+        userDTO.setEmail(email);
+        userDTO.setUserRole(userRole);
+
+        return userDTO;
     }
 }
